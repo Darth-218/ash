@@ -43,3 +43,18 @@ Show directory contents & show current directory:
 Navigate files & Show file contents:
 
 Move between directories & manual pages:
+
+## New Command Names
+
+| Original command | Our command  |
+|------------------|--------------|
+| `mv`             | `change-loc` |
+| `rm`             | `destroy`    |
+| `cp`             | `clone`      |
+| `touch`          | `punch`      |
+| `cat`            | `print-file` |
+| `ls`             | `print-dir`  |
+| `pwd`            | `where`      |
+| `less`           | `view-file`  |
+| `cd`             | `change-pos` |
+| `man`            | `elder`      |
