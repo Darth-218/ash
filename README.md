@@ -9,6 +9,7 @@ A simple shell that implements:
 ## Important
 
 - Create a default path to store all the commands
+- Create a history file
 
 ## Commands to implement
 
@@ -34,15 +35,15 @@ A simple shell that implements:
 
 ## Roles
 
-- [ ] Move & delete:
+- [ ] Move & delete: Afifi
 
-- [ ] Copy & create:
+- [ ] Copy & create: Mazen
 
-- [ ] Show directory contents & show current directory:
+- [ ] Show directory contents & show current directory: Bullets
 
-- [ ] Navigate files & Show file contents:
+- [ ] Navigate files & Show file contents: Darth
 
-- [ ] Move between directories & manual pages:
+- [ ] Move between directories & manual pages: AlchemistsGestalt
 
 ## New Command Names
 
