@@ -1,4 +1,4 @@
-# nsh
+# ash
 
 ## Idea
 
@@ -34,13 +34,12 @@ A simple shell that implements:
 
 ## Roles
 
-1, 3
 Move & delete:
-2, 4
+
 Copy & create:
-5, 7
+
 Show directory contents & show current directory:
-6, 8
+
 Navigate files & Show file contents:
-9, 10
+
 Move between directories & manual pages:
