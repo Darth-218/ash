@@ -1,6 +1,5 @@
 *.log
-
 *.o
 *.exe
-
+.vscode/
 # TODO: fill this out.
