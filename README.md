@@ -34,15 +34,15 @@ A simple shell that implements:
 
 ## Roles
 
-Move & delete:
+- [ ] Move & delete:
 
-Copy & create:
+- [ ] Copy & create:
 
-Show directory contents & show current directory:
+- [ ] Show directory contents & show current directory:
 
-Navigate files & Show file contents:
+- [ ] Navigate files & Show file contents:
 
-Move between directories & manual pages:
+- [ ] Move between directories & manual pages:
 
 ## New Command Names
 
