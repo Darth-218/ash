@@ -2,14 +2,9 @@
 
 ## Idea
 
-A simple shell that implements:
+A simple shell *(IN C++)* that implements:
 
 - basic file/directory manipulating functions.
-
-## Important
-
-- Create a default path to store all the commands
-- Create a history file
 
 ## Commands to implement
 
@@ -35,13 +30,22 @@ A simple shell that implements:
 
 ## Roles
 
-- [ ] Move & delete: Afifi
+### Main processes
+
+- [ ] Default shell process: Darth
+- [ ] Makefile: Zein
+- [ ] Create a default path to store all the commands
+- [ ] Create a history file
+
+### Commands
+
+- [ ] Move & delete: Darth
 
 - [ ] Copy & create: Mazen
 
 - [ ] Show directory contents & show current directory: Bullets
 
-- [ ] Navigate files & Show file contents: Darth
+- [ ] Navigate files & Show file contents: Afifi
 
 - [ ] Move between directories & manual pages: AlchemistsGestalt
 
