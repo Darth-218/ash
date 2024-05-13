@@ -1,0 +1,6 @@
+*.log
+
+*.o
+*.exe
+
+# TODO: fill this out.
