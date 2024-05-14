@@ -4,22 +4,27 @@
 
 using namespace std;
 
-// TODO: Add a verbose parameter
 // TODO: Add a force parameter
 
 int main(int args, char **argv) {
 
   for (int arg = 1; arg < args; arg++) {
 
-    if (!(filesystem::is_directory(argv[arg])))
+    if (!(filesystem::exists(argv[arg])))
+      cout << "File/directory \"" << argv[arg] << "\" does not exit\n";
+
+    else if (filesystem::equivalent(argv[arg], argv[0]))
+      cout << "The program can't delete itself, reconsider yourself.\n";
+
+    else if (!(filesystem::is_directory(argv[arg])))
       filesystem::remove(argv[arg]);
-    else {
+
+    else if (filesystem::is_directory(argv[arg])) {
       cout << "Deleting a directory, do you want to proceed? [y/N] ";
       char confirmation = getchar();
+
       if (tolower(confirmation) == 'y')
         filesystem::remove_all(argv[arg]);
-      else
-        continue;
     }
   }
 }
