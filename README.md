@@ -34,8 +34,8 @@ A simple shell *(IN C++)* that implements:
 
 - [ ] Default shell process: Darth
 - [ ] Makefile: Zein
-- [ ] Create a default path to store all the commands
-- [ ] Create a history file
+- [ ] Create a default path to store all the commands: Afifi
+- [ ] Create a history file: Afifi
 
 ### Commands
 
