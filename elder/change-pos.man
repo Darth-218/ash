@@ -1,0 +1,39 @@
+.TH change-pos 1 "2024-05-15" "another shell"
+.
+.
+.SH NAME
+change-pos \- go places, do things
+.
+.
+.SH SYNOPSIS
+.SY change-pos
+.I directory-path
+.YS
+.
+.
+.SH DESCRIPTION
+.P
+Change your current working directory to the one specified by
+.IR directory-path .
+.
+.
+.SH "KNOWN ISSUES"
+.P
+Processes cannot change the working directory of their parents,
+which may raise a problem in the future
+once we connect everything together.
+.
+.
+.SH AUTHOR
+.P
+Created by the member of
+.I First Time Compile
+known as
+.BR alchemistsGestalt .
+.
+.
+.SH COPYRIGHT
+.P
+Copyright (C) 2024 First Time Compile
+.br
+There is NO WARRANTY, to the extent permitted by law.

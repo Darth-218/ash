@@ -1,0 +1,25 @@
+
+[4mchange-pos[24m(1)               General Commands Manual              [4mchange-pos[24m(1)
+
+[1mNAME[0m
+       change-pos - go places, do things
+
+[1mSYNOPSIS[0m
+       [1mchange-pos [4m[22mdirectory-path[0m
+
+[1mDESCRIPTION[0m
+       Change  your  current  working directory to the one specified by [4mdirec‐[0m
+       [4mtory-path[24m.
+
+[1mKNOWN ISSUES[0m
+       Processes cannot change the working directory of their  parents,  which
+       may raise a problem in the future once we connect everything together.
+
+[1mAUTHOR[0m
+       Created by the member of [4mFirst[24m [4mTime[24m [4mCompile[24m known as [1malchemistsGestalt[22m.
+
+[1mCOPYRIGHT[0m
+       Copyright (C) 2024 First Time Compile
+       There is NO WARRANTY, to the extent permitted by law.
+
+another shell                     2024-05-15                     [4mchange-pos[24m(1)
