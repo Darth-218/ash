@@ -14,7 +14,11 @@
 #define ASH_H_
 
 #include <iostream>
+#include <sstream>
 #include <string>
+#include <unistd.h>
+
+#define ELDER_PATH "~/ash/elder"
 
 #endif // ASH_H_
 

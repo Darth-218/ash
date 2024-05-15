@@ -16,7 +16,7 @@ destroy: src/destroy.cpp src/ash.hpp
 	echo "TODO"
 
 elder: src/elder.cpp src/ash.hpp
-	echo "TODO"
+	g++ -o bin/elder src/elder.cpp
 
 emics: src/emics.cpp src/ash.hpp
 	g++ -o bin/emics src/emics.cpp -lreadline
