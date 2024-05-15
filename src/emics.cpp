@@ -12,13 +12,9 @@
  */
 
 #include "ash.hpp"
-#include <unistd.h>
-#include <fstream>
-#include <readline/readline.h>
 
 auto main(int argc, char **argv) -> int {
   std::ofstream fout(/* file */ argv[1]);
-  std::string s;
   while (1) {
     char *input = readline(NULL);
     if (!input)

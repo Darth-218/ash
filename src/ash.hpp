@@ -15,8 +15,11 @@
 
 #include <iostream>
 #include <sstream>
-#include <string>
+#include <fstream>
+
 #include <unistd.h>
+#include <string>
+#include <readline/readline.h>
 
 #define ELDER_PATH "~/ash/elder"
 
