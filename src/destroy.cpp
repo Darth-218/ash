@@ -4,6 +4,12 @@
 
 using namespace std;
 
+/* NOTE: It is better to write things like the `does not exist' messages to
+ *       stderr (std::cerr) instead of stdout/std::cout, in case the output is
+ *       being piped/redirected somewhere, to make sure that the user sees it.
+ *       --- Fedora Enthusiast.
+ */
+
 // TODO: Add a force parameter
 
 int main(int args, char **argv) {

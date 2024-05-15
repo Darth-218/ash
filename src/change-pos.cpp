@@ -5,7 +5,7 @@
  * Author: alchemistsGestalt
  * Maintaner: alchemistsGestalt
  * Created: 13 May, 2024
- * Modified: 13 May, 2024
+ * Modified: 15 May, 2024
  * Homepage: https://github.com/darth-218/ash
  *
  * Code:
@@ -13,12 +13,18 @@
 
 #include "ash.hpp"
 
-auto change_pos(std::string new_dir) -> int {
-    std::filesystem::current_path(new_dir);
-    /* Is that it? */
-
-     /* NOTE: my IDE is giving me a warning that `std` has no member named
-      *       `filesystem`.
-      */
-    return 0;
+auto main(int argc, char **argv) -> int {
+  if (argc <= 1) {
+    ERR << argv[0] << ": too few arguments: " << argc << LF;
+    return -1;
+  } else if (access(argv[1], R_OK | W_OK | X_OK)) {
+    /* NOTE: explicitly check for directory existance. */
+    ERR << argv[0] << ": no such file or directory: " << argv[1] << LF;
+    return -1;
+  }
+  TTY << "entering " << argv[1] <<  LF;
+  std::filesystem::current_path(argv[1]);
+  return 0;
 }
+
+/* change-pos.cpp ends here */

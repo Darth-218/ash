@@ -16,12 +16,18 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <filesystem>
 
 #include <unistd.h>
 #include <string>
 #include <readline/readline.h>
 
 #define ELDER_PATH "~/ash/elder"
+
+#define TTY std::cout
+#define ERR std::cerr
+#define QUAD std:cin
+#define LF std::endl
 
 #endif // ASH_H_
 

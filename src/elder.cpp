@@ -13,10 +13,6 @@
 
 #include "ash.hpp"
 
-#define TTY std::cout
-#define ERR std::cerr
-#define LF std::endl
-
 auto main(int argc, char **argv) -> int {
   if (argc <= 1) {
     ERR << argv[0] << ": too few arguments: " << argc << LF;
