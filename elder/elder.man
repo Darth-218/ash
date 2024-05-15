@@ -1,0 +1,36 @@
+.TH elder 1 "2024-05-14" "another shell"
+.
+.
+.SH NAME
+elder \- consult the elder for wisdom and guidance
+.
+.
+.SH SYNOPSIS
+.SY elder
+.I command
+.YS
+.
+.
+.SH DESCRIPTION
+.P
+Running
+.B elder
+.I command
+searches for and views the \*(lqelder page\*(rq
+for the selected
+.IR command .
+.
+.
+.SH AUTHOR
+.P
+Created by the member of
+.I First Time Compile
+known as
+.BR alchemistsGestalt .
+.
+.
+.SH COPYRIGHT
+.P
+Copyright (C) 2024 First Time Compile
+.br
+There is NO WARRANTY, to the extent permitted by law.

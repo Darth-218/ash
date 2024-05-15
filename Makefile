@@ -5,8 +5,6 @@
 # @version 0.1
 
 all: change-pos destroy elder emics print-file where
-	echo "Yo mistah White there's straight up nothing for me to compile.  \
-	Go write some code, bitch."
 
 ash: src/main.cpp src/ash.cpp src/ash.hpp
 	echo "TODO"
@@ -28,6 +26,10 @@ print-file: src/print-file.cpp src/ash.hpp
 
 where: src/where.c src/ash.hpp
 	echo "TODO"
+
+elder-pages: elder/*.man
+	for e in elder/*.man; do \
+	groff -man -Tutf8 "$$e" > "elder/"`basename -s .man $$e`".elder"; done
 
 format:
 	indent -kr src/*.{cpp,hpp}

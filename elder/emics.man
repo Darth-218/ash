@@ -1,0 +1,34 @@
+.TH emics 1 "2024-05-14" "another shell"
+.
+.
+.SH NAME
+emics \- editor micros
+.
+.
+.SH SYNOPSIS
+.SY emics
+.RI [ file ]
+.YS
+.
+.
+.SH DESCRIPTION
+.P
+Edit the selected
+.I file
+by opening it and writing all input from
+.B stdin
+into it.
+.
+.
+.SH AUTHOR
+Created by the member of
+.I First Time Compile
+known as
+.BR alchemistsGestalt .
+.
+.
+.SH Copyright
+.P
+Copyright (C) 2024 First Time Compile
+.br
+There is NO WARRANTY, to the extent permitted by law.

@@ -1,0 +1,21 @@
+
+[4memics[24m(1)                    General Commands Manual                   [4memics[24m(1)
+
+[1mNAME[0m
+       emics - editor micros
+
+[1mSYNOPSIS[0m
+       [1memics [22m[[4mfile[24m]
+
+[1mDESCRIPTION[0m
+       Edit  the  selected [4mfile[24m by opening it and writing all input from [1mstdin[0m
+       into it.
+
+[1mAUTHOR[0m
+       Created by the member of [4mFirst[24m [4mTime[24m [4mCompile[24m known as [1malchemistsGestalt[22m.
+
+[1mCopyright[0m
+       Copyright (C) 2024 First Time Compile
+       There is NO WARRANTY, to the extent permitted by law.
+
+another shell                     2024-05-14                          [4memics[24m(1)
