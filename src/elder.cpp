@@ -5,7 +5,7 @@
  * Author: alchemistsGestalt
  * Maintaner: alchemistsGestalt
  * Created: 13 May, 2024
- * Modified: 13 May, 2024
+ * Modified: 15 May, 2024
  * Homepage: https://github.com/darth-218/ash
  *
  * Code:
@@ -19,9 +19,12 @@ auto main(int argc, char **argv) -> int {
     return -1;
   }
   std::stringstream s;
-  s << "/home/rosethorn/ash" << "/" << argv[1] << ".elder";
-  if (access(s.str().c_str(), F_OK)) {
+  s << getenv("HOME") << "/" << ELDER_PATH << "/" << argv[1] << ".elder";
+  if (std::filesystem::exists(s.str())) {
     TTY << "TODO: wait for afifi to finish `view-file'" << LF;
+    std::stringstream c;
+    c << "cat " << s.str();
+    system(c.str().c_str());
   }
   else {
     ERR << argv[0] << ": invalid argument: " << argv[1] << LF;

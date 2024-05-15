@@ -17,8 +17,7 @@ auto main(int argc, char **argv) -> int {
   if (argc <= 1) {
     ERR << argv[0] << ": too few arguments: " << argc << LF;
     return -1;
-  } else if (access(argv[1], R_OK | W_OK | X_OK)) {
-    /* NOTE: explicitly check for directory existance. */
+  } else if (!std::filesystem::is_directory(argv[1])) {
     ERR << argv[0] << ": no such file or directory: " << argv[1] << LF;
     return -1;
   }
