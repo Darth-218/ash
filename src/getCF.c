@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int main()
+void getCurrentDirectory()
 {
     char cwd[100];
 
     if (getcwd(cwd, sizeof(cwd)) != NULL)
-        printf("Current working directory: %s\n", cwd);
-
+        getcwd(cwd, sizeof(cwd));
     else
         perror("getcwd() error");
-    return 0;
 }
