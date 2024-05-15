@@ -14,16 +14,18 @@
 #include "ash.hpp"
 
 #define TTY std::cout
+#define ERR std::cerr
 #define LF std::endl
 
 auto main(int argc, char **argv) -> int {
+  if (argc <= 1) {
+    ERR << argv[0] << ": too few arguments: " << argc << LF;
+    return -1;
+  }
   std::stringstream s;
-  std::stringstream ss;
-  s << ELDER_PATH << "/" << argv[1];
+  s << "/home/rosethorn/ash" << "/" << argv[1] << ".elder";
   if (access(s.str().c_str(), F_OK)) {
     TTY << "TODO: wait for afifi to finish `view-file'" << LF;
-    ss << "less " << s.str() << ".elder";
-    system(ss.str().c_str());
   }
   else
     return -1;                  /* ERROR */
