@@ -27,8 +27,10 @@ auto main(int argc, char **argv) -> int {
   if (access(s.str().c_str(), F_OK)) {
     TTY << "TODO: wait for afifi to finish `view-file'" << LF;
   }
-  else
+  else {
+    ERR << argv[0] << ": invalid argument: " << argv[1] << LF;
     return -1;                  /* ERROR */
+  }
   return 0;                     /* SUCCESS */
 }
 
