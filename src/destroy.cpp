@@ -10,9 +10,13 @@ using namespace std;
  *       --- Fedora Enthusiast.
  */
 
+/* NOTE: I don't see why anyone would like to redirect the output of
+ * 	 a command that deletes?
+ */
+
 // TODO: Add a force parameter
 
-int main(int args, char **argv) {
+int destroy(int args, char **argv) {
 
   for (int arg = 1; arg < args; arg++) {
 
@@ -33,4 +37,11 @@ int main(int args, char **argv) {
         filesystem::remove_all(argv[arg]);
     }
   }
+  return 0;
+}
+
+int main(int args, char **argv) {
+
+  destroy(args, argv);
+  return 0;
 }
