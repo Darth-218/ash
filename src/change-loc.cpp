@@ -1,11 +1,28 @@
 #include "ash.hpp"
+#include <cstring>
 
 #define MOVED_MESSAGE(from, to)                                                \
-  cout << "Moved " << argv[from] << " to " << argv[to] << "\n";
+  cout << "Moved \"" << argv[from] << "\" to " << argv[to] << "\n";
+#define PRINT_FILE(file) "\"" << file << "\""
 
-// FIX: Auto move the files into folders without specifying filenames
+// TODO: Add a 'backup' option
+//
+// FIX: Specifying the target path
+//
+// FIX: Moving from a directory to the current one without
+// specifically naming the destination file
+//
+// FIX: Moving to a directory without adding "/" to the end
+// of its name
 
 using namespace std;
+
+int move(string from, string to) {
+
+  filesystem::copy(from, to);
+  filesystem::remove_all(from);
+  return 0;
+}
 
 int change_loc(int argc, char **argv) {
 
@@ -15,15 +32,34 @@ int change_loc(int argc, char **argv) {
 
       for (int arg = 1; arg < (argc - 1); arg++) {
 
-        filesystem::copy(argv[arg], argv[argc - 1]);
-        filesystem::remove_all(argv[arg]);
-        MOVED_MESSAGE(arg, argc - 1)
+        if (!filesystem::exists(argv[arg])) {
+          cout << PRINT_FILE(argv[arg]) << " does not exist.\n";
+          continue;
+        }
+
+        string destination = (string)argv[argc - 1] + (string)argv[arg];
+
+        if (filesystem::exists(destination)) {
+
+          cout << PRINT_FILE(destination)
+               << " already exists, do you want to overwrite? [y/N] ";
+
+          if (tolower(getchar()) == 'y') {
+            filesystem::remove_all(destination);
+            move(argv[arg], destination);
+            MOVED_MESSAGE(arg, argc - 1)
+          } else
+            continue;
+        } else {
+
+          move(argv[arg], destination);
+          MOVED_MESSAGE(arg, argc - 1)
+        }
       }
     } else
-      cout << "\"" << argv[argc - 1] << "\" is not a directory\n";
+      cout << PRINT_FILE(argv[argc - 1]) << " is not a directory\n";
   } else {
-    filesystem::copy(argv[1], argv[argc - 1]);
-    filesystem::remove_all(argv[1]);
+    move(argv[1], argv[argc - 1]);
     MOVED_MESSAGE(1, argc - 1)
   }
 
