@@ -16,22 +16,23 @@
 #ifdef __cplusplus
 
 /* C++ headers */
+#include <cstdio>
+#include <filesystem>
+#include <fstream>
 #include <iostream>
 #include <sstream>
-#include <fstream>
-#include <filesystem>
 
 #define TTY std::cout
 #define ERR std::cerr
-#define QUAD std:cin
+#define QUAD std::cin
 #define LF std::endl
 
-#endif  /* __cplusplus */
+#endif /* __cplusplus */
 
 /* C headers */
-#include <unistd.h>
-#include <string>
 #include <readline/readline.h>
+#include <string>
+#include <unistd.h>
 
 /* Paths */
 #define BIN_PATH "ash/bin"
