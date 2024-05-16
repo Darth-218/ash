@@ -13,7 +13,7 @@
 
 #include "ash.hpp"
 
-auto main(int argc, char **argv) -> int {
+auto change_pos(int argc, char **argv) -> int {
   if (argc <= 1) {
     ERR << argv[0] << ": too few arguments: " << argc << LF;
     return -1;

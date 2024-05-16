@@ -33,6 +33,8 @@
 #include <string>
 #include <readline/readline.h>
 
+/* Paths */
+#define BIN_PATH "ash/bin"
 #define ELDER_PATH "ash/elder"
 
 #endif /* ASH_H_ */

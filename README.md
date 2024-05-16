@@ -48,6 +48,12 @@ A simple shell *(IN C++)* that implements:
 - [ ] Navigate files & Show file contents: Afifi
 
 - [ ] Move between directories & manual pages: AlchemistsGestalt
+  - NOTE ABOUT cd/change-pos: The command `cd` is not an executable like other
+    commands, but a shell built-in.  This is because **processes cannot change
+    the working directory of other processes**.  I have changed `change-pos.cpp`
+    from having a `main()` function to being a `change-pos` function, which
+    should be called from the main shell somehow.  It should also preferably not
+    be in its own independent file. --- Fedora Enthusiast
 
 ## New Command Names
 

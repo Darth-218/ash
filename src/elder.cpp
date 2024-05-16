@@ -23,7 +23,7 @@ auto main(int argc, char **argv) -> int {
   if (std::filesystem::exists(s.str())) {
     TTY << "TODO: wait for afifi to finish `view-file'" << LF;
     std::stringstream c;
-    c << "cat " << s.str();
+    c << getenv("HOME") << "/" << BIN_PATH << "/" << "print-file " << s.str();
     system(c.str().c_str());
   }
   else {
