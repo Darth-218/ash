@@ -20,9 +20,7 @@ int destroy(int args, char **argv) {
 
     else if (filesystem::is_directory(argv[arg])) {
       cout << "Deleting a directory, do you want to proceed? [y/N] ";
-      char confirmation = getchar();
-
-      if (tolower(confirmation) == 'y')
+      if (tolower(getchar()) == 'y')
         filesystem::remove_all(argv[arg]);
     }
   }
