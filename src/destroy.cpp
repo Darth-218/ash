@@ -1,20 +1,9 @@
-#include <cstdio>
-#include <filesystem>
-#include <iostream>
+#include "ash.hpp"
 
 using namespace std;
 
-/* NOTE: It is better to write things like the `does not exist' messages to
- *       stderr (std::cerr) instead of stdout/std::cout, in case the output is
- *       being piped/redirected somewhere, to make sure that the user sees it.
- *       --- Fedora Enthusiast.
- */
-
-/* NOTE: I don't see why anyone would like to redirect the output of
- * 	 a command that deletes?
- */
-
 // TODO: Add a force parameter
+// TODO: Better error handeling
 
 int destroy(int args, char **argv) {
 
