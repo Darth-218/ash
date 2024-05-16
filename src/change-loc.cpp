@@ -30,6 +30,11 @@ int change_loc(int argc, char **argv) {
 
     if (filesystem::is_directory(argv[argc - 1])) {
 
+      char slash = argv[argc - 1][size((string)argv[argc - 1])];
+
+      (string) argv[argc - 1] =
+          (slash == '/') ? argv[argc - 1] : (string)argv[argc - 1] + '/';
+
       for (int arg = 1; arg < (argc - 1); arg++) {
 
         if (!filesystem::exists(argv[arg])) {
@@ -38,7 +43,6 @@ int change_loc(int argc, char **argv) {
         }
 
         string destination = (string)argv[argc - 1] + (string)argv[arg];
-
         if (filesystem::exists(destination)) {
 
           cout << PRINT_FILE(destination)
@@ -51,7 +55,6 @@ int change_loc(int argc, char **argv) {
           } else
             continue;
         } else {
-
           move(argv[arg], destination);
           MOVED_MESSAGE(arg, argc - 1)
         }
