@@ -30,11 +30,11 @@
 #endif /* __cplusplus */
 
 /* C headers */
-#include <stdio.h>
 #include <readline/readline.h>
-#include <unistd.h>
+#include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 
 /* Paths */
 #define BIN_PATH "ash/bin"
