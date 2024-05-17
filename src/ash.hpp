@@ -4,7 +4,7 @@
  *
  * Author: alchemistsGestalt
  * Created: 13 May, 2024
- * Modified: 15 May, 2024
+ * Modified: 17 May, 2024
  * Homepage: https://github.com/darth-218/ash
  *
  * Code:
@@ -16,11 +16,11 @@
 #ifdef __cplusplus
 
 /* C++ headers */
-#include <cstdio>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <string>
 
 #define TTY std::cout
 #define ERR std::cerr
@@ -30,8 +30,8 @@
 #endif /* __cplusplus */
 
 /* C headers */
+#include <stdio.h>
 #include <readline/readline.h>
-#include <string>
 #include <unistd.h>
 
 /* Paths */

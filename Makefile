@@ -4,7 +4,7 @@
 # @file
 # @version 0.1
 
-all: change-pos destroy elder emics print-file where clean
+all: destroy elder emics print-file where clean
 
 clean:
 	rm bin/*.o -f
@@ -14,9 +14,6 @@ ash: src/main.cpp bin/ash.o
 
 bin/ash.o: src/ash.cpp src/ash.hpp
 	g++ -c -o bin/ash.o src/ash.cpp
-
-change-pos: src/change-pos.cpp src/ash.hpp
-	g++ -o bin/change-pos src/change-pos.cpp
 
 destroy: src/destroy.cpp src/ash.hpp
 	g++ -o bin/destroy src/destroy.cpp
