@@ -1,5 +1,4 @@
 #include "ash.hpp"
-#include <cstring>
 
 #define MOVED_MESSAGE(from, to)                                                \
   cout << "Moved \"" << argv[from] << "\" to " << argv[to] << "\n";
