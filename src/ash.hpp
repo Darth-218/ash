@@ -33,6 +33,8 @@
 #include <stdio.h>
 #include <readline/readline.h>
 #include <unistd.h>
+#include <string.h>
+#include <time.h>
 
 /* Paths */
 #define BIN_PATH "ash/bin"

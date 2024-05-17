@@ -25,7 +25,7 @@ A simple shell *(IN C++)* that implements:
 - Prompt customization
 - Directory Tree
 - Keybinds
-- Varibles
+- Variables
 - Colored outputs (command dependant)
 
 ## Roles
