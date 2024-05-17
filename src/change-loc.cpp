@@ -11,9 +11,6 @@
 //
 // FIX: Moving from a directory to the current one without
 // specifically naming the destination file
-//
-// FIX: Moving to a directory without adding "/" to the end
-// of its name
 
 using namespace std;
 
@@ -30,11 +27,6 @@ int change_loc(int argc, char **argv) {
 
     if (filesystem::is_directory(argv[argc - 1])) {
 
-      char slash = argv[argc - 1][size((string)argv[argc - 1])];
-
-      (string) argv[argc - 1] =
-          (slash == '/') ? argv[argc - 1] : (string)argv[argc - 1] + '/';
-
       for (int arg = 1; arg < (argc - 1); arg++) {
 
         if (!filesystem::exists(argv[arg])) {
@@ -42,7 +34,11 @@ int change_loc(int argc, char **argv) {
           continue;
         }
 
-        string destination = (string)argv[argc - 1] + (string)argv[arg];
+        string destination =
+            (argv[argc - 1][size((string)argv[argc - 1]) - 1] == '/')
+                ? (string)argv[argc - 1] + (string)argv[arg]
+                : (string)argv[argc - 1] + "/" + (string)argv[arg];
+
         if (filesystem::exists(destination)) {
 
           cout << PRINT_FILE(destination)
