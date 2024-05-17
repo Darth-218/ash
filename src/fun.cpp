@@ -11,18 +11,7 @@
 #include "ash.hpp"
 
 #define NUM_GAMES 2
-
-auto signum_of_difference(int a, int b) -> int {
-  if (a > b)
-    return 1;
-  else if (a == b)
-    return 0;
-  else if (a < b)
-    return -1;
-  else
-    ERR << "something very bad happened" << LF;
-  return 255;
-}
+#define OR(a,b) a?a:b
 
 void guess() {
   int secret = rand() % 100;
@@ -30,7 +19,7 @@ void guess() {
   TTY << "Guess a number between 0 (inclusive) and 100 (exclusive)!" << LF;
 GAME:
   QUAD >> guess;
-  switch (signum_of_difference(guess, secret)) {
+  switch (OR((guess>secret), -(secret>guess))) {
     default:
       ERR << "This shouldn't have happened" << LF;
     case 1:
