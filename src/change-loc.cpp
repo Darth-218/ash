@@ -2,7 +2,7 @@
 
 #define MOVED_MESSAGE(from, to)                                                \
   cout << "Moved \"" << argv[from] << "\" to \"" << argv[to] << "\"\n";
-#define PRINT_FILE(file) "\"" << file << "\""
+#define FILE_NAME(file) "\"" << file << "\""
 
 // TODO: Add a 'backup' option
 
@@ -24,7 +24,7 @@ int change_loc(int argc, char **argv) {
       for (int arg = 1; arg < (argc - 1); arg++) {
 
         if (!filesystem::exists(argv[arg])) {
-          cout << PRINT_FILE(argv[arg]) << " does not exist.\n";
+          cout << FILE_NAME(argv[arg]) << " does not exist.\n";
           continue;
         }
 
@@ -35,7 +35,7 @@ int change_loc(int argc, char **argv) {
 
         if (filesystem::exists(destination)) {
 
-          cout << PRINT_FILE(destination)
+          cout << FILE_NAME(destination)
                << " already exists, do you want to overwrite? [y/N] ";
 
           if (tolower(getchar()) == 'y') {
@@ -50,7 +50,7 @@ int change_loc(int argc, char **argv) {
         }
       }
     } else
-      cout << PRINT_FILE(argv[argc - 1]) << " is not a directory\n";
+      cout << FILE_NAME(argv[argc - 1]) << " is not a directory\n";
   } else {
     move(argv[1], argv[argc - 1]);
     MOVED_MESSAGE(1, argc - 1)
