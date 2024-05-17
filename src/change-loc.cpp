@@ -1,7 +1,7 @@
 #include "ash.hpp"
 
 #define MOVED_MESSAGE(from, to)                                                \
-  cout << "Moved \"" << argv[from] << "\" to " << argv[to] << "\n";
+  cout << "Moved \"" << argv[from] << "\" to \"" << argv[to] << "\"\n";
 #define PRINT_FILE(file) "\"" << file << "\""
 
 // TODO: Add a 'backup' option
