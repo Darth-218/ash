@@ -5,11 +5,6 @@
 #define PRINT_FILE(file) "\"" << file << "\""
 
 // TODO: Add a 'backup' option
-//
-// FIX: Specifying the target path
-//
-// FIX: Moving from a directory to the current one without
-// specifically naming the destination file
 
 using namespace std;
 
