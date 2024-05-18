@@ -19,7 +19,7 @@ auto main(int argc, char **argv) -> int {
     char *input = readline(NULL);
     if (!input)
       break;
-    fout << input;
+    fout << input << LF;
     free(input);
   }
   return 0;
