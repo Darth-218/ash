@@ -1,6 +1,8 @@
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
+#include <sys/wait.h>
+#include <unistd.h>
 
 #define ARGS_DELIMITERS " \n\t"
 #define BUFFER_SIZE 1024
@@ -21,6 +23,8 @@ char *ash_readlines(void) {
   return buffer;
 }
 
+// FIX: Reallocate as the size increases
+
 char **ash_splitargs(char *line) {
 
   int position = 0;
@@ -39,6 +43,26 @@ char **ash_splitargs(char *line) {
   return args;
 }
 
+int ash_start(char **args) {
+
+  pid_t pid, cpid;
+  int status;
+
+  pid = fork();
+  if (pid == 0 && execvp(args[0], args) == -1) {
+    exit(EXIT_FAILURE);
+  } else if (pid < 0) {
+    cout << "Error Forking" << "\n";
+  } else {
+
+    do {
+      cpid = waitpid(pid, &status, WUNTRACED);
+    } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+  }
+
+  return 1;
+}
+
 int ash_run(char **args) {
 
   int status;
@@ -47,7 +71,12 @@ int ash_run(char **args) {
     return 1;
   }
 
-  return status;
+  // TODO: Find out what the built in functions are to add them here
+
+  /* for (int i = 0; i < (sizeof(args) / sizeof(char *)); i++) { */
+  /* } */
+
+  return ash_start(args);
 }
 
 void ash_loop(void) {
