@@ -1,0 +1,32 @@
+.TH print-file 1 "2024-05-19" "another shell"
+.
+.
+.SH NAME
+print-file \- no file's contents shall remain hidden from your eyes
+.
+.
+.SH SYNOPSIS
+.SY print-file
+.IR file ...
+.YS
+.
+.
+.SH DESCRIPTION
+.P
+Reveals the secrets contained within
+.I file
+to you.
+.
+.
+.SH AUTHOR
+Created by the member of
+.I First Time Compile
+known as
+.BR "Ahmed Afifi" .
+.
+.
+.SH COPYRIGHT
+.P
+Copyright (C) 2024 First Time Compile
+.br
+There is NO WARRANTY, to the extent permitted by law.

@@ -1,0 +1,34 @@
+.TH cpfile 1 "2024-05-19" "another shell"
+.
+.
+.SH NAME
+cpfile \- recreate the plot of the second Star Wars movie
+.
+.
+.SH SYNOPSIS
+.SY cpfile
+.I source
+.I destination
+.YS
+.
+.
+.SH DESCRIPTION
+.P
+Copies the file named by
+.I source
+into the file named by
+.IR destination .
+.
+.
+.SH AUTHOR
+Created by the member of
+.I First Time Compile
+known as
+.BR "Mazen Ahmed" .
+.
+.
+.SH COPYRIGHT
+.P
+Copyright (C) 2024 First Time Compile
+.br
+There is NO WARRANTY, to the extent permitted by law.

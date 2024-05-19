@@ -3,8 +3,7 @@
 *.exe
 .vscode/
 bin/*
-# TODO: fill this out.
-
+elder/*.elder
 destroy
 where
 excutables/

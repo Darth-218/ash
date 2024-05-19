@@ -1,0 +1,32 @@
+.TH destroy 1 "2024-05-19" "another shell"
+.
+.
+.SH NAME
+destroy \- what it says on the tin
+.
+.
+.SH SYNOPSIS
+.SY destroy
+.IR file ...
+.YS
+.
+.
+.SH DESCRIPTION
+.P
+Completely obliterates the mere idea of
+.I file
+existing.
+.
+.
+.SH AUTHOR
+Created by the member of
+.I First Time Compile
+known as
+.BR Darth-218 " (" "Yahia Gaber" ).
+.
+.
+.SH COPYRIGHT
+.P
+Copyright (C) 2024 First Time Compile
+.br
+There is NO WARRANTY, to the extent permitted by law.

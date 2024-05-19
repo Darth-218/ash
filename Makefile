@@ -33,7 +33,7 @@ bin/elder: src/elder.cpp src/ash.hpp
 	g++ -o bin/elder src/elder.cpp
 
 bin/emics: src/emics.cpp src/ash.hpp
-	g++ -o bin/emics src/emics.cpp -lreadline
+	g++ -o bin/emics -lreadline src/emics.cpp
 
 bin/fun: src/fun.cpp src/ash.hpp
 	g++ -o bin/fun src/fun.cpp
@@ -47,8 +47,8 @@ bin/print-file: src/print-file.cpp src/ash.hpp
 bin/punch: src/punch.cpp src/ash.hpp
 	g++ -o bin/punch src/punch.cpp
 
-bin/view-file:
-	echo "TODO"
+bin/view-file: src/view-file.cpp src/ash.hpp
+	g++ -o bin/view-file -lncurses src/view-file.cpp
 
 bin/where: src/where.c src/ash.hpp
 	gcc -o bin/where src/where.c

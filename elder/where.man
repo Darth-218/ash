@@ -1,0 +1,29 @@
+.TH where 1 "2024-05-19" "another shell"
+.
+.
+.SH SYNOPSIS
+where \- where the fuck am I???
+.
+.
+.SH SYNOPSIS
+.SY where
+.YS
+.
+.
+.SH DESCRIPTION
+.P
+Find out where your ass is.
+.
+.
+.SH AUTHOR
+Created by the member of
+.I First Time Compile
+known as
+.BR AsuraTE " (" "Ahmed Abd elMaboud" ).
+.
+.
+.SH COPYRIGHT
+.P
+Copyright (C) 2024 First Time Compile
+.br
+There is NO WARRANTY, to the extent permitted by law.

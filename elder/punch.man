@@ -1,0 +1,33 @@
+.TH punch 1 "2024-05-19" "another shell"
+.
+.
+.SH NAME
+punch \- touch more aggressively
+.
+.
+.SH SYNOPSIS
+.SY punch
+.I file
+.YS
+.
+.
+.SH DESCRIPTION
+.P
+Creates a file named
+.I file
+if it does not exist,
+or updates the last\-modified time if it does.
+.
+.
+.SH AUTHOR
+Created by the member of
+.I First Time Compile
+known as
+.BR "Mazen Ahmed" .
+.
+.
+.SH COPYRIGHT
+.P
+Copyright (C) 2024 First Time Compile
+.br
+There is NO WARRANTY, to the extent permitted by law.

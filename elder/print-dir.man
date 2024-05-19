@@ -1,0 +1,38 @@
+.TH print-dir 1 "2024-05-19" "another shell"
+.
+.
+.SH NAME
+print-dir \- what you should run after every command
+.
+.
+.SH SYNOPSIS
+.SY print-dir
+.RI [ -d ]
+.RI [ directory ]
+.YS
+.
+.
+.SH DESCRIPTION
+.P
+Prints the contents of the current directory,
+or of
+.I directory
+if given.
+If given the
+.I -d
+option,
+it also shows the dot\-files present in the directory.
+.
+.
+.SH AUTHOR
+Created by the member of
+.I First Time Compile
+known as
+.BR AsuraTE " (" "Ahmed Abd elMaboud" ).
+.
+.
+.SH COPYRIGHT
+.P
+Copyright (C) 2024 First Time Compile
+.br
+There is NO WARRANTY, to the extent permitted by law.
