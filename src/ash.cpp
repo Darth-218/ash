@@ -8,6 +8,7 @@
 
 // TODO: Better error handling
 // FIX: Program termination
+// FIX: "Command not found"
 // FIX: Reallocate "args" size as the size increases
 // FIX: Keyboard signals
 // TODO: Create an array of built-in functions to excute (war crime)
