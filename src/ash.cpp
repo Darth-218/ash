@@ -9,6 +9,7 @@
 // TODO: Better error handling
 // FIX: Program termination
 // FIX: Reallocate "args" size as the size increases
+// FIX: Keyboard signals
 // TODO: Create an array of built-in functions to excute (war crime)
 // TODO: Colored outputs
 
