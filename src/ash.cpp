@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <cstring>
 #include <iostream>
 
@@ -8,23 +9,28 @@ using namespace std;
 
 char *ash_readlines(void) {
 
-  char *buffer;
-  unsigned long command;
-  unsigned long buffer_size = BUFFER_SIZE;
-  command = getline(&buffer, &buffer_size, stdin);
+  char *buffer = NULL;
+  unsigned long buffer_size = 0;
+
+  if (getline(&buffer, &buffer_size, stdin) == -1) {
+    if (feof(stdin)) {
+      exit(EXIT_SUCCESS);
+    } else
+      exit(EXIT_FAILURE);
+  }
   return buffer;
 }
 
 char **ash_splitargs(char *line) {
 
-  char **args;
+  int position = 0;
+  char **args = (char **)malloc(64 * sizeof(char *));
   char *arg;
-  int position;
 
   arg = strtok(line, ARGS_DELIMITERS);
 
   while (arg != NULL) {
-    *(args + position) = arg;
+    args[position] = arg;
     arg = strtok(NULL, ARGS_DELIMITERS);
     position++;
   }

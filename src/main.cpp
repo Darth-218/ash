@@ -11,11 +11,12 @@
  * Code:
  */
 
+#include "ash.cpp"
 #include <iostream>
 
 auto main(int argc, char *argv[]) -> int {
-        std::cout << "TODO: write the main loop" << std::endl;
-        return 0;
+  ash_loop();
+  return 0;
 }
 
 /* main.cpp ends here */
