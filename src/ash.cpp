@@ -5,7 +5,8 @@
 #include <unistd.h>
 
 #define ARGS_DELIMITERS " \n\t"
-#define BUFFER_SIZE 1024
+
+// FIX: Returning errors or wtv
 
 using namespace std;
 
@@ -15,10 +16,8 @@ char *ash_readlines(void) {
   unsigned long buffer_size = 0;
 
   if (getline(&buffer, &buffer_size, stdin) == -1) {
-    if (feof(stdin)) {
-      exit(EXIT_SUCCESS);
-    } else
-      exit(EXIT_FAILURE);
+
+    cout << "Error reading command" << "\n";
   }
   return buffer;
 }
@@ -54,7 +53,6 @@ int ash_start(char **args) {
   } else if (pid < 0) {
     cout << "Error Forking" << "\n";
   } else {
-
     do {
       cpid = waitpid(pid, &status, WUNTRACED);
     } while (!WIFEXITED(status) && !WIFSIGNALED(status));
