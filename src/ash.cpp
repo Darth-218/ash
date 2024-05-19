@@ -6,7 +6,11 @@
 
 #define ARGS_DELIMITERS " \n\t"
 
-// FIX: Returning errors or wtv
+// TODO: Better error handling
+// FIX: Program termination
+// FIX: Reallocate "args" size as the size increases
+// TODO: Create an array of built-in functions to excute (war crime)
+// TODO: Colored outputs
 
 using namespace std;
 
@@ -21,8 +25,6 @@ char *ash_readlines(void) {
   }
   return buffer;
 }
-
-// FIX: Reallocate as the size increases
 
 char **ash_splitargs(char *line) {
 
@@ -68,8 +70,6 @@ int ash_run(char **args) {
   if (args[0] == NULL) {
     return 1;
   }
-
-  // TODO: Find out what the built in functions are to add them here
 
   /* for (int i = 0; i < (sizeof(args) / sizeof(char *)); i++) { */
   /* } */
