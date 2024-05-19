@@ -6,13 +6,14 @@
 
 #define ARGS_DELIMITERS " \n\t"
 
-// TODO: Better error handling
 // FIX: Program termination
 // FIX: "Command not found"
 // FIX: Reallocate "args" size as the size increases
 // FIX: Keyboard signals
+// TODO: Better error handling
 // TODO: Create an array of built-in functions to excute (war crime)
 // TODO: Colored outputs
+// TODO: Configuration file
 
 using namespace std;
 
