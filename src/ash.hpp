@@ -40,6 +40,14 @@
 #define BIN_PATH "ash/bin"
 #define ELDER_PATH "ash/elder"
 
+#ifdef MAIN
+char *ash_readlines();
+char **ash_splitargs(char *line);
+int ash_start(char **args);
+int ash_run(char **args);
+void ash_loop();
+#endif  /* MAIN */
+
 #endif /* ASH_H_ */
 
 /* ash.hpp ends here */

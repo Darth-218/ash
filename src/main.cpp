@@ -5,14 +5,14 @@
  * Author: alchemistsGestalt
  * Maintaner: Darth-218
  * Created: 13 May, 2024
- * Modified: 13 May, 2024
+ * Modified: 20 May, 2024
  * Homepage: https://github.com/darth-218/ash
  *
  * Code:
  */
 
-#include "ash.cpp"
-#include <iostream>
+#define MAIN
+#include "ash.hpp"
 
 auto main(int argc, char *argv[]) -> int {
   ash_loop();
