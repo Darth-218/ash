@@ -1,4 +1,5 @@
 #include "ash.hpp"
+#include "ash_builtins.cpp"
 #include <sys/wait.h>
 
 #define ARGS_DELIMITERS " \n\t"
@@ -20,8 +21,10 @@ char *ash_readlines(void) {
   unsigned long buffer_size = 0;
 
   if (getline(&buffer, &buffer_size, stdin) == -1) {
-
-    cout << "Error reading command" << "\n";
+    if (feof(stdin))
+      exit(EXIT_SUCCESS);
+    else
+      exit(EXIT_FAILURE);
   }
   return buffer;
 }
@@ -53,7 +56,7 @@ int ash_start(char **args) {
   if (pid == 0 && execvp(args[0], args) == -1) {
     exit(EXIT_FAILURE);
   } else if (pid < 0) {
-    cout << "Error Forking" << "\n";
+    perror("Error forking");
   } else {
     do {
       cpid = waitpid(pid, &status, WUNTRACED);
@@ -71,8 +74,11 @@ int ash_run(char **args) {
     return 1;
   }
 
-  /* for (int i = 0; i < (sizeof(args) / sizeof(char *)); i++) { */
-  /* } */
+  for (int i = 0; i < 2; i++) {
+    if ((string)args[0] == builtins[i]) {
+      return (*ash_functions[i])((string)args[1]);
+    }
+  }
 
   return ash_start(args);
 }
@@ -89,16 +95,4 @@ void ash_loop(void) {
     args = ash_splitargs(command);
     command_status = ash_run(args);
   } while (command_status);
-}
-
-int change_dir(std::string directory) {
-  if (!filesystem::is_directory(directory)) {
-    return -1;
-  }
-  filesystem::current_path(directory);
-  return 0;
-}
-
-int exit() {
-  return -1;
 }
