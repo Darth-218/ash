@@ -55,7 +55,8 @@ void acey_deucy() {
   int cards[3] = {0};
   int bet;
   TTY << "You will be shown two (2) cards." << LF;
-  TTY <<"  How much do you bet that the next card's value will be between them?" << LF;
+  TTY << "How much do you bet that the next card's value will be between them?"
+      << LF;
 GAME:
   if (money <= 0)
     goto FAILED;

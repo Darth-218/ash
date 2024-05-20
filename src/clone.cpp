@@ -1,6 +1,17 @@
-#include <fstream>
-#include <iostream>
-#include <string>
+/* clone.cpp --- recreate the plot of the second star wars movie
+ *
+ * Copyright (C) 2024 First Time Compile
+ *
+ * Author: Mazen Ahmed Refaei
+ * Maintainer: Mazen Ahmed Refaei
+ * Created: 18 May, 2024
+ * Modified: 20 May, 2024
+ *
+ * Code:
+ */
+
+#include "ash.hpp"
+
 using namespace std;
 
 int main(int argc, char *argv[]) {
@@ -24,3 +35,5 @@ int main(int argc, char *argv[]) {
   file2.close();
   return 0;
 }
+
+/* clone.cpp ends here */

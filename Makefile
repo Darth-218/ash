@@ -4,11 +4,12 @@
 # @file
 # @version 0.1
 
-all: bin/ash afifi bullets mazen zein clean
+all: ash afifi bullets mazen zein clean
 
+ash: bin/ash
 afifi: bin/view-file bin/print-file
 bullets: bin/print-dir bin/where
-mazen: bin/cpfile bin/punch
+mazen: bin/clone bin/punch
 zein: bin/elder bin/emics bin/fun
 
 clean:
@@ -23,8 +24,8 @@ bin/ash.o: src/ash.cpp src/ash.hpp
 bin/change-loc: src/change-loc.cpp src/ash.hpp
 	g++ -o bin/change-loc src/change-loc.cpp
 
-bin/cpfile: src/cpfile.c++ src/ash.hpp
-	g++ -o bin/cpfile src/cpfile.c++
+bin/clone: src/clone.cpp src/ash.hpp
+	g++ -o bin/clone src/clone.cpp
 
 bin/destroy: src/destroy.cpp src/ash.hpp
 	g++ -o bin/destroy src/destroy.cpp

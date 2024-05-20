@@ -1,8 +1,5 @@
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
+#include "ash.hpp"
 #include <sys/wait.h>
-#include <unistd.h>
 
 #define ARGS_DELIMITERS " \n\t"
 
