@@ -4,7 +4,7 @@
  *
  * Author: alchemistsGestalt
  * Created: 13 May, 2024
- * Modified: 17 May, 2024
+ * Modified: 20 May, 2024
  * Homepage: https://github.com/darth-218/ash
  *
  * Code:
@@ -40,6 +40,7 @@
 #define BIN_PATH "ash/bin"
 #define ELDER_PATH "ash/elder"
 
+/* Functions used by the main loop */
 #ifdef MAIN
 char *ash_readlines();
 char **ash_splitargs(char *line);

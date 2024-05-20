@@ -5,12 +5,13 @@
  * Author: alchemistsGestalt
  * Maintaner: alchemistsGestalt
  * Created: 13 May, 2024
- * Modified: 15 May, 2024
+ * Modified: 20 May, 2024
  * Homepage: https://github.com/darth-218/ash
  *
  * Code:
  */
 
+#define MAIN
 #include "ash.hpp"
 
 auto main(int argc, char **argv) -> int {
@@ -21,10 +22,8 @@ auto main(int argc, char **argv) -> int {
   std::stringstream s;
   s << getenv("HOME") << "/" << ELDER_PATH << "/" << argv[1] << ".elder";
   if (std::filesystem::exists(s.str())) {
-    TTY << "TODO: wait for afifi to finish `view-file'" << LF;
-    std::stringstream c;
-    c << getenv("HOME") << "/" << BIN_PATH << "/" << "print-file " << s.str();
-    system(c.str().c_str());
+    std::string args[] = {"view-file", s.str().c_str()};
+    ash_run((char **) args);
   }
   else {
     ERR << argv[0] << ": invalid argument: " << argv[1] << LF;
