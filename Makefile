@@ -58,7 +58,4 @@ elder-pages: elder/*.man
 	for e in elder/*.man; do \
 	groff -man -Tutf8 "$$e" > "elder/"`basename -s .man $$e`".elder"; done
 
-format:
-	indent -kr src/*.{cpp,hpp}
-
 # end

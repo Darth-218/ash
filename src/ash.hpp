@@ -46,6 +46,7 @@ char **ash_splitargs(char *line);
 int ash_start(char **args);
 int ash_run(char **args);
 void ash_loop();
+int change_dir(std::string directory);
 #endif  /* MAIN */
 
 #endif /* ASH_H_ */

@@ -90,3 +90,15 @@ void ash_loop(void) {
     command_status = ash_run(args);
   } while (command_status);
 }
+
+int change_dir(std::string directory) {
+  if (!filesystem::is_directory(directory)) {
+    return -1;
+  }
+  filesystem::current_path(directory);
+  return 0;
+}
+
+int exit() {
+  return -1;
+}
