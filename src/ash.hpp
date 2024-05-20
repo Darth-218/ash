@@ -42,6 +42,7 @@
 
 /* Functions used by the main loop */
 #ifdef MAIN
+#include "ash_builtins.cpp"
 char *ash_readlines();
 char **ash_splitargs(char *line);
 int ash_start(char **args);
