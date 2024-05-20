@@ -30,8 +30,8 @@ bin/clone: src/clone.cpp src/ash.hpp
 bin/destroy: src/destroy.cpp src/ash.hpp
 	g++ -o bin/destroy src/destroy.cpp
 
-bin/elder: src/elder.cpp src/ash.hpp
-	g++ -o bin/elder src/elder.cpp
+bin/elder: bin/ash.o src/elder.cpp src/ash.hpp
+	g++ -o bin/elder bin/ash.o src/elder.cpp
 
 bin/emics: src/emics.cpp src/ash.hpp
 	g++ -o bin/emics -lreadline src/emics.cpp
