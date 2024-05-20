@@ -49,6 +49,16 @@ void ash_loop();
 int change_dir(std::string directory);
 #endif  /* MAIN */
 
+/* Exit Codes */
+enum exit_codes {
+  EXT_SUCC,                     /* Success */
+  EXT_FAIL,                     /* Failure */
+  EXT_NFOUND,                   /* Not Found */
+  EXT_ARG,                      /* Invalid Argument */
+  EXT_INP,                      /* Improper Input */
+  EXT_OS,                       /* Problem out of our control */
+};
+
 #endif /* ASH_H_ */
 
 /* ash.hpp ends here */
