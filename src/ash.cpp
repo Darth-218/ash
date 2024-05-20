@@ -80,6 +80,7 @@ int ash_run(char **args) {
 
   for (int i = 0; i < 2; i++) {
     if ((string)args[0] == builtins[i]) {
+      // FIX: I'm too lazy to fix this for now
       return (*ash_functions[i])((string)args[1]);
     }
   }

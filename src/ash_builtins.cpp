@@ -5,11 +5,11 @@ int change_dir(std::string directory) {
     return -1;
   }
   std::filesystem::current_path(directory);
-  std::cout << "cd-ed";
-  return 0;
+  std::cout << "cd-ed\n";
+  return 1;
 }
 
 int exit_ash(std::string) { return -1; }
 
-std::string builtins[] = {"change_dir", "exit"};
+std::string builtins[] = {"change-dir", "exit"};
 int (*ash_functions[])(std::string) = {&change_dir, &exit_ash};
