@@ -53,8 +53,12 @@ int ash_start(char **args) {
   int status;
 
   pid = fork();
-  if (pid == 0 && execvp(args[0], args) == -1) {
-    exit(EXIT_FAILURE);
+  if (pid == 0) {
+    int status = execvp(args[0], args);
+    if (status == -1) {
+      cout << "Failed to excute \"" << args[0] << "\", does it exist?\n";
+      exit(EXIT_FAILURE);
+    }
   } else if (pid < 0) {
     perror("Error forking");
   } else {
