@@ -48,7 +48,7 @@ bin/punch: src/punch.cpp src/ash.hpp
 	g++ -o bin/punch src/punch.cpp
 
 bin/view-file: src/view-file.cpp src/ash.hpp
-	g++ -o bin/view-file -lncurses src/view-file.cpp
+	g++ -o bin/view-file src/view-file.cpp -lncurses
 
 bin/where: src/where.c src/ash.hpp
 	gcc -o bin/where src/where.c
