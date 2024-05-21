@@ -9,7 +9,6 @@
 // FIX: Reallocate "args" size as the size increases
 // FIX: Keyboard signals
 // TODO: Better error handling
-// TODO: Create an array of built-in functions to excute (war crime)
 // TODO: Colored outputs
 // TODO: Configuration file
 
@@ -36,14 +35,12 @@ char **ash_splitargs(char *line) {
   char *arg;
 
   arg = strtok(line, ARGS_DELIMITERS);
-
   while (arg != NULL) {
     args[position] = arg;
     arg = strtok(NULL, ARGS_DELIMITERS);
     position++;
   }
   *(args + position) = NULL;
-
   return args;
 }
 
@@ -66,7 +63,6 @@ int ash_start(char **args) {
       cpid = waitpid(pid, &status, WUNTRACED);
     } while (!WIFEXITED(status) && !WIFSIGNALED(status));
   }
-
   return 1;
 }
 
@@ -80,8 +76,7 @@ int ash_run(char **args) {
 
   for (int i = 0; i < 2; i++) {
     if ((string)args[0] == builtins[i]) {
-      // FIX: I'm too lazy to fix this for now
-      return (*ash_functions[i])((string)args[1]);
+      return (*ash_functions[i])(args);
     }
   }
 

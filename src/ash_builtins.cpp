@@ -1,15 +1,18 @@
 #include "ash.hpp"
 
-int change_dir(std::string directory) {
-  if (!std::filesystem::is_directory(directory)) {
+int change_dir(char **directory) {
+  if (directory[1] == NULL)
     return -1;
-  }
-  std::filesystem::current_path(directory);
-  std::cout << "cd-ed\n";
+  std::string target = directory[1];
+  if (!std::filesystem::is_directory(target))
+    return -1;
+
+  std::filesystem::current_path(target);
+  std::cout << "cd-ed to \"" << target << "\"\n";
   return 1;
 }
 
-int exit_ash(std::string) { return -1; }
+int exit_ash(char **) { return 0; }
 
 std::string builtins[] = {"change-dir", "exit"};
-int (*ash_functions[])(std::string) = {&change_dir, &exit_ash};
+int (*ash_functions[])(char **) = {&change_dir, &exit_ash};
