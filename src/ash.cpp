@@ -95,7 +95,7 @@ void ash_loop(void) {
   int command_status;
 
   do {
-    cout << "[ash]:> ";
+    cout << "[ash]: ";
     command = ash_readlines();
     args = ash_splitargs(command);
     command_status = ash_run(args);
