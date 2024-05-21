@@ -1,11 +1,11 @@
 #include "ash.hpp"
 #include "ash_builtins.cpp"
+#include <csignal>
 #include <sys/wait.h>
 
 #define ARGS_DELIMITERS " \n\t"
 
 // FIX: Program termination
-// FIX: "Command not found"
 // FIX: Reallocate "args" size as the size increases
 // FIX: Keyboard signals
 // TODO: Better error handling
@@ -83,6 +83,8 @@ int ash_run(char **args) {
   return ash_start(args);
 }
 
+void handler(int signum) { ; }
+
 void ash_loop(void) {
 
   char *command;
@@ -90,6 +92,7 @@ void ash_loop(void) {
   int command_status;
 
   do {
+    signal(SIGINT, handler);
     cout << "[ash]: ";
     command = ash_readlines();
     args = ash_splitargs(command);
