@@ -2,22 +2,33 @@
 #include <fstream>
 #include <ncurses.h>
 #include <vector>
+#include <filesystem>
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
-  initscr();
   string filePath = argv[1];
   vector<string> fileContents;
   try
   {
+    if (!(filesystem::exists(filePath)))
+    {
+      endwin();
+      return 2;
+    }
+    else
+    {
+      initscr();
+    }
+
     fstream fileStream;
     fileStream.open(filePath, ios::out | ios::in);
 
     if (fileStream.fail())
     {
       // report an error and return.
+      return -1;
     }
 
     while (!fileStream.eof())

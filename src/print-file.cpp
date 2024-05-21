@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <filesystem>
 
 using namespace std;
 
@@ -8,6 +9,11 @@ int main(int argc, char **argv)
   string filePath = argv[1];
   try
   {
+    if (!(filesystem::exists(filePath)))
+    {
+      return 2;
+    }
+
     fstream fileStream;
     fileStream.open(filePath, ios::out | ios::in);
 
