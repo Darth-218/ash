@@ -1,9 +1,13 @@
 #include "ash.hpp"
 
 int change_dir(char **directory) {
+  std::string target;
   if (directory[1] == NULL)
-    return -1;
-  std::string target = directory[1];
+    target = getenv("HOME");
+  else target = directory[1];
+  size_t home_pos = target.find("~");
+  if (home_pos != std::string::npos)
+    target.replace(home_pos, 1, getenv("HOME"));
   if (!std::filesystem::is_directory(target))
     return -1;
 
