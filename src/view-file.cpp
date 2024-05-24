@@ -51,8 +51,7 @@ int main(int argc, char **argv)
         printw("%s\n", fileContents[i].c_str());
       }
 
-      // command = getch();
-      sleep(5);
+      command = getch();
       switch (command)
       {
       case 'j':
