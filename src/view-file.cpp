@@ -6,6 +6,9 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
+  if (argv[1] == NULL)
+    return EXT_INP;
+
   string filePath = argv[1];
   vector<string> fileContents;
   try
@@ -13,7 +16,7 @@ int main(int argc, char **argv)
     if (!(filesystem::exists(filePath)))
     {
       endwin();
-      return 2;
+      return EXT_NFOUND;
     }
     else
     {
@@ -26,7 +29,7 @@ int main(int argc, char **argv)
     if (fileStream.fail())
     {
       // report an error and return.
-      return -1;
+      return EXT_FAIL;
     }
 
     while (!fileStream.eof())
@@ -48,7 +51,8 @@ int main(int argc, char **argv)
         printw("%s\n", fileContents[i].c_str());
       }
 
-      command = getch();
+      // command = getch();
+      sleep(5);
       switch (command)
       {
       case 'j':
@@ -74,6 +78,8 @@ int main(int argc, char **argv)
     }
 
     endwin();
+
+    return EXT_SUCC;
   }
   catch (const std::exception &e)
   {

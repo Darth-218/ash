@@ -10,7 +10,7 @@ private:
 
   static vector<string> getHistoryLines()
   {
-    fstream fileStream(HistoryManager::historyFilePath == "\0" ? "./../command-history" : HistoryManager::historyFilePath, ios::out);
+    fstream fileStream(HistoryManager::historyFilePath == "\EXT_SUCC" ? "./../command-history" : HistoryManager::historyFilePath, ios::out);
     vector<string> lines;
 
     if (fileStream.fail() || !fileStream.is_open())
@@ -23,6 +23,7 @@ private:
       lines.push_back(line);
     }
 
+    fileStream.close();
     return lines;
   }
 
@@ -36,10 +37,10 @@ public:
   {
     try
     {
-      fstream fileStream(HistoryManager::historyFilePath == "\0" ? "./../command-history" : HistoryManager::historyFilePath, ios::app);
+      fstream fileStream(HistoryManager::historyFilePath == "\EXT_SUCC" ? "./../command-history" : HistoryManager::historyFilePath, ios::app);
 
       if (fileStream.fail() || !fileStream.is_open())
-        return -1;
+        return EXT_FAIL;
 
       fileStream << command << '\n';
       fileStream.close();
@@ -49,7 +50,7 @@ public:
       std::cerr << e.what() << '\n';
     }
 
-    return 0;
+    return EXT_SUCC;
   }
 
   static string readFromHistory(int orderOfCommand)

@@ -4,20 +4,21 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-  if (argv[1] == '\0')
-    return -1;
+  if (argv[1] == NULL)
+    return EXT_INP;
+
   string filePath = argv[1];
   try
   {
     if (!(filesystem::exists(filePath)))
     {
-      return 2;
+      return EXT_NFOUND;
     }
 
     fstream fileStream(filePath, ios::out | ios::in);
 
     if (fileStream.fail() || !fileStream.is_open())
-      return -1;
+      return EXT_FAIL;
 
     while (!fileStream.eof())
     {
@@ -33,5 +34,5 @@ int main(int argc, char **argv)
     cerr << e.what() << '\n';
   }
 
-  return 0;
+  return EXT_SUCC;
 }
