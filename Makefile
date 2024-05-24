@@ -16,7 +16,7 @@ clean:
 	rm bin/*.o -f
 
 bin/ash: src/main.cpp bin/ash.o
-	g++ -o bin/ash bin/ash.o src/main.cpp
+	g++ -o bin/ash bin/ash.o src/main.cpp -lreadline
 
 bin/ash.o: src/ash.cpp src/ash.hpp
 	g++ -c -o bin/ash.o src/ash.cpp
@@ -31,7 +31,7 @@ bin/destroy: src/destroy.cpp src/ash.hpp
 	g++ -o bin/destroy src/destroy.cpp
 
 bin/elder: bin/ash.o src/elder.cpp src/ash.hpp
-	g++ -o bin/elder bin/ash.o src/elder.cpp
+	g++ -o bin/elder bin/ash.o src/elder.cpp -lreadline
 
 bin/emics: src/emics.cpp src/ash.hpp
 	g++ -o bin/emics src/emics.cpp -lreadline
