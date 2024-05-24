@@ -1,11 +1,11 @@
 #include "ash.hpp"
 #include "ash_builtins.cpp"
+#include "history.cpp"
 #include <csignal>
 #include <sys/wait.h>
 
 #define ARGS_DELIMITERS " \n\t"
 
-// FIX: Program termination
 // FIX: Reallocate "args" size as the size increases
 // FIX: Keyboard signals
 // TODO: Better error handling
@@ -51,10 +51,20 @@ int ash_start(char **args) {
 
   pid = fork();
   if (pid == 0) {
+
     int status = execvp(args[0], args);
+
     if (status == -1) {
-      cout << "Failed to excute \"" << args[0] << "\", does it exist?\n";
-      exit(EXIT_FAILURE);
+
+      string newpath =
+          (string)getenv("HOME") + "/" + (string)BIN_PATH + (string)args[0];
+      const char *cnewpath = newpath.c_str();
+      status = execvp(cnewpath, args);
+
+      if (status == -1) {
+        cout << "Failed to excute \"" << args[0] << "\", does it exist?\n";
+        exit(EXIT_FAILURE);
+      }
     }
   } else if (pid < 0) {
     perror("Error forking");
@@ -85,16 +95,28 @@ int ash_run(char **args) {
 
 void handler(int signum) { ; }
 
+string path() {
+  string path = filesystem::current_path();
+  string target = getenv("HOME");
+  size_t pos = path.find(target);
+  if (pos == std::string::npos)
+    return path;
+  path.replace(pos, target.length(), "~");
+  return path;
+}
+
 void ash_loop(void) {
 
   char *command;
   char **args;
-  int command_status;
+  int command_status = 1;
 
   do {
     signal(SIGINT, handler);
-    cout << "[ash]: ";
+    cout << path() << " [" << !command_status << "]: ";
     command = ash_readlines();
+    /* HistoryManager::init(); */
+    /* HistoryManager::writeToHistory((string)command); */
     args = ash_splitargs(command);
     command_status = ash_run(args);
   } while (command_status);
