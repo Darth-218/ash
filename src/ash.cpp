@@ -20,13 +20,7 @@ char *ash_readlines(void) {
   char *buffer = NULL;
   unsigned long buffer_size = 0;
 
-  /* if (getline(&buffer, &buffer_size, stdin) == -1) { */
-  if ((buffer = readline(NULL))) {
-    if (feof(stdin))
-      exit(EXIT_SUCCESS);
-    else
-      exit(EXIT_FAILURE);
-  }
+  buffer = readline(NULL);
   return buffer;
 }
 
