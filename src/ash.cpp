@@ -2,9 +2,10 @@
 #include "ash_builtins.cpp"
 #include "history.hpp"
 #include <csignal>
+#include <readline/readline.h>
 #include <sys/wait.h>
 
-#define ARGS_DELIMITERS " \n\t"
+#define ARGS_DELIMITERS " \n\t\""
 
 // FIX: Reallocate "args" size as the size increases
 // FIX: Keyboard signals
@@ -19,7 +20,8 @@ char *ash_readlines(void) {
   char *buffer = NULL;
   unsigned long buffer_size = 0;
 
-  if (getline(&buffer, &buffer_size, stdin) == -1) {
+  /* if (getline(&buffer, &buffer_size, stdin) == -1) { */
+  if ((buffer = readline(NULL))) {
     if (feof(stdin))
       exit(EXIT_SUCCESS);
     else
