@@ -58,7 +58,6 @@ int ash_start(char **args) {
 
       string newpath = (string)getenv("HOME") + "/" + (string)BIN_PATH + "/" +
                        (string)args[0];
-      cout << newpath << "\n";
       const char *cnewpath = newpath.c_str();
       status = execvp(cnewpath, args);
 
@@ -110,11 +109,11 @@ void ash_loop(void) {
 
   char *command;
   char **args;
-  int command_status = 1;
+  int command_status = 0;
 
   do {
     signal(SIGINT, handler);
-    cout << path() << " [" << !command_status << "]: ";
+    cout << path() << "> ";
     command = ash_readlines();
     /* HistoryManager::init(); */
     /* HistoryManager::writeToHistory((string)command); */
