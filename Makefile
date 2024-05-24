@@ -54,6 +54,9 @@ bin/view-file: src/view-file.cpp src/ash.hpp
 bin/where: src/where.c src/ash.hpp
 	gcc -o bin/where src/where.c
 
+bin/history: src/history.cpp src/ash.hpp
+	g++ -o bin/history src/history.cpp
+
 elder-pages: elder/*.man
 	for e in elder/*.man; do \
 	groff -man -Tutf8 "$$e" > "elder/"`basename -s .man $$e`".elder"; done
