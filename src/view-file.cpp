@@ -2,6 +2,10 @@
 #include <ncurses.h>
 #include <vector>
 
+#define SCROLL_CONTENTS_UP 'j'
+#define SCROLL_CONTENTS_DOWN 'k'
+#define LAST_LINE_ON_SCREEN (min((int)fileContents.size(), LINES) + scrollPosition - 1)
+
 using namespace std;
 
 int main(int argc, char **argv)
@@ -21,6 +25,10 @@ int main(int argc, char **argv)
     else
     {
       initscr();
+      cbreak();
+      noecho();
+      scrollok(stdscr, TRUE);
+      curs_set(0);
     }
 
     fstream fileStream;
@@ -41,32 +49,42 @@ int main(int argc, char **argv)
     }
     fileStream.close();
 
+    for (int i = 0; i < LINES && i < fileContents.size(); i++)
+    {
+      printw("%s\n", fileContents[i].c_str());
+    }
+    refresh();
+
     char command = '\0';
-    int currentLine = 0;
+    int scrollPosition = 0;
     while (command != 'q')
     {
-      clear();
-      for (int i = currentLine; i < LINES + currentLine && i < fileContents.size(); i++)
-      {
-        printw("%s\n", fileContents[i].c_str());
-      }
+      // clear();
 
       command = getch();
       switch (command)
       {
-      case 'j':
+      case SCROLL_CONTENTS_UP:
         // scroll contents up.
-        if (currentLine < fileContents.size() - LINES - 1)
+        if (LAST_LINE_ON_SCREEN < fileContents.size() - 1)
         {
-          currentLine++;
+          int x, y;
+          scrollPosition++;
+          printw("%s", fileContents[LAST_LINE_ON_SCREEN].c_str());
+          scrl(1);
+          getyx(stdscr, y, x);
+          move(y, 0);
+          refresh();
         }
         break;
 
-      case 'k':
+      case SCROLL_CONTENTS_DOWN:
         // scroll contents down.
-        if (currentLine > 0)
+        if (scrollPosition > 0)
         {
-          currentLine--;
+          scrollPosition--;
+          scrl(-1);
+          refresh();
         }
 
         break;
