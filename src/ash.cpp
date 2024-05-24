@@ -56,8 +56,9 @@ int ash_start(char **args) {
 
     if (status == -1) {
 
-      string newpath =
-          (string)getenv("HOME") + "/" + (string)BIN_PATH + (string)args[0];
+      string newpath = (string)getenv("HOME") + "/" + (string)BIN_PATH + "/" +
+                       (string)args[0];
+      cout << newpath << "\n";
       const char *cnewpath = newpath.c_str();
       status = execvp(cnewpath, args);
 
