@@ -115,8 +115,8 @@ void ash_loop(void) {
     signal(SIGINT, handler);
     cout << path() << "> ";
     command = ash_readlines();
-    /* HistoryManager::init(); */
-    /* HistoryManager::writeToHistory((string)command); */
+    HistoryManager::init();
+    HistoryManager::writeToHistory((string)command);
     args = ash_splitargs(command);
     command_status = ash_run(args);
 
