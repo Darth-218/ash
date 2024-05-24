@@ -119,5 +119,8 @@ void ash_loop(void) {
     /* HistoryManager::writeToHistory((string)command); */
     args = ash_splitargs(command);
     command_status = ash_run(args);
+
+    free(command);
+    free(args);
   } while (command_status);
 }
