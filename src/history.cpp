@@ -10,7 +10,7 @@ private:
 
   static vector<string> getHistoryLines()
   {
-    fstream fileStream(HistoryManager::historyFilePath == "\EXT_SUCC" ? "./../command-history" : HistoryManager::historyFilePath, ios::out);
+    fstream fileStream(HistoryManager::historyFilePath == "" ? "./../command-history" : HistoryManager::historyFilePath, ios::out | ios::in);
     vector<string> lines;
 
     if (fileStream.fail() || !fileStream.is_open())
@@ -37,7 +37,7 @@ public:
   {
     try
     {
-      fstream fileStream(HistoryManager::historyFilePath == "\EXT_SUCC" ? "./../command-history" : HistoryManager::historyFilePath, ios::app);
+      fstream fileStream(HistoryManager::historyFilePath == "" ? "./../command-history" : HistoryManager::historyFilePath, ios::app);
 
       if (fileStream.fail() || !fileStream.is_open())
         return EXT_FAIL;
@@ -58,11 +58,25 @@ public:
     try
     {
       vector<string> lines = HistoryManager::getHistoryLines();
-      return lines[lines.size() - orderOfCommand];
+      return lines[lines.size() - orderOfCommand - 1];
     }
     catch (const std::exception &e)
     {
       std::cerr << e.what() << '\n';
     }
+    return "shit";
   }
 };
+
+std::string HistoryManager::historyFilePath = "./../command-history";
+
+int main()
+{
+  HistoryManager::init();
+  HistoryManager::writeToHistory("testCommand1");
+  HistoryManager::writeToHistory("testCommand2");
+  HistoryManager::writeToHistory("testCommand3");
+  HistoryManager::writeToHistory("testCommand4");
+  cout << HistoryManager::readFromHistory(1);
+  getchar();
+}
