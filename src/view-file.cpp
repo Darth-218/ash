@@ -2,10 +2,12 @@
 #include <ncurses.h>
 #include <vector>
 
+#define BOTTOM_WINDOW_HEIGHT 3
+#define MAIN_WINDOW_HEIGHT (LINES - BOTTOM_WINDOW_HEIGHT)
 #define SCROLL_CONTENTS_UP 'j'
 #define SCROLL_CONTENTS_DOWN 'k'
-#define LAST_LINE_ON_SCREEN (min((int)fileContents.size(), LINES) + scrollPosition - 1)
-#define FIRST_LINE_ON_SCREEN (LAST_LINE_ON_SCREEN - LINES + 1)
+#define LAST_LINE_ON_SCREEN (min((int)fileContents.size(), MAIN_WINDOW_HEIGHT) + scrollPosition - 1)
+#define FIRST_LINE_ON_SCREEN (LAST_LINE_ON_SCREEN - MAIN_WINDOW_HEIGHT + 1)
 
 using namespace std;
 
@@ -16,6 +18,8 @@ int main(int argc, char **argv)
 
   string filePath = argv[1];
   vector<string> fileContents;
+  WINDOW *mainWindow;
+  WINDOW *bottomWindow;
   try
   {
     if (!(filesystem::exists(filePath)))
@@ -28,8 +32,14 @@ int main(int argc, char **argv)
       initscr();
       cbreak();
       noecho();
-      scrollok(stdscr, TRUE);
+      mainWindow = newwin(MAIN_WINDOW_HEIGHT, COLS - 1, 0, 0);
+      scrollok(mainWindow, TRUE);
       curs_set(0);
+      bottomWindow = newwin(BOTTOM_WINDOW_HEIGHT, COLS - 1, MAIN_WINDOW_HEIGHT, 0);
+      box(bottomWindow, 0, 0);
+      mvwprintw(bottomWindow, 1, 1, "quit: q | scroll_up : j |scroll_down: k");
+      refresh();
+      wrefresh(bottomWindow);
     }
 
     fstream fileStream;
@@ -50,12 +60,11 @@ int main(int argc, char **argv)
     }
     fileStream.close();
 
-    for (int i = 0; i < LINES && i < fileContents.size(); i++)
+    for (int i = 0; i < MAIN_WINDOW_HEIGHT && i < fileContents.size(); i++)
     {
-      move(i, 0);
-      printw("%s", fileContents[i].c_str());
+      mvwprintw(mainWindow, i, 0, "%s", fileContents[i].c_str());
     }
-    refresh();
+    wrefresh(mainWindow);
 
     char command = '\0';
     int scrollPosition = 0;
@@ -71,10 +80,10 @@ int main(int argc, char **argv)
         if (LAST_LINE_ON_SCREEN < fileContents.size() - 1)
         {
           scrollPosition++;
-          scrl(1);
-          move(LINES - 1, 0);
-          printw("%s", fileContents[LAST_LINE_ON_SCREEN].c_str());
-          refresh();
+          wscrl(mainWindow, 1);
+          wmove(mainWindow, MAIN_WINDOW_HEIGHT - 1, 0);
+          wprintw(mainWindow, "%s", fileContents[LAST_LINE_ON_SCREEN].c_str());
+          wrefresh(mainWindow);
         }
         break;
 
@@ -83,10 +92,10 @@ int main(int argc, char **argv)
         if (scrollPosition > 0)
         {
           scrollPosition--;
-          scrl(-1);
-          move(0, 0);
-          printw("%s", fileContents[FIRST_LINE_ON_SCREEN].c_str());
-          refresh();
+          wscrl(mainWindow, -1);
+          wmove(mainWindow, 0, 0);
+          wprintw(mainWindow, "%s", fileContents[FIRST_LINE_ON_SCREEN].c_str());
+          wrefresh(mainWindow);
         }
 
         break;
@@ -94,6 +103,9 @@ int main(int argc, char **argv)
       default:
         break;
       }
+
+      wrefresh(mainWindow);
+      wrefresh(bottomWindow);
     }
 
     endwin();
