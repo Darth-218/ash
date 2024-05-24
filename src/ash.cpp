@@ -1,6 +1,6 @@
 #include "ash.hpp"
 #include "ash_builtins.cpp"
-#include "history.cpp"
+#include "history.hpp"
 #include <csignal>
 #include <sys/wait.h>
 
