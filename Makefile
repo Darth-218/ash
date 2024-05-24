@@ -7,7 +7,7 @@
 all: ash afifi bullets mazen zein clean
 
 ash: bin/ash
-afifi: bin/view-file bin/print-file
+afifi: bin/view-file bin/print-file bin/history
 bullets: bin/print-dir bin/where
 mazen: bin/clone bin/punch
 zein: bin/elder bin/emics bin/fun
@@ -54,8 +54,8 @@ bin/view-file: src/view-file.cpp src/ash.hpp
 bin/where: src/where.c src/ash.hpp
 	gcc -o bin/where src/where.c
 
-bin/history: src/history.cpp src/ash.hpp
-	g++ -o bin/history src/history.cpp
+bin/history: src/history.hpp src/ash.hpp
+	g++ -o bin/history src/history.hpp
 
 elder-pages: elder/*.man
 	for e in elder/*.man; do \
