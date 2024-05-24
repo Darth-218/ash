@@ -69,14 +69,3 @@ public:
 };
 
 std::string HistoryManager::historyFilePath = "./../command-history";
-
-int main()
-{
-  HistoryManager::init();
-  HistoryManager::writeToHistory("testCommand1");
-  HistoryManager::writeToHistory("testCommand2");
-  HistoryManager::writeToHistory("testCommand3");
-  HistoryManager::writeToHistory("testCommand4");
-  cout << HistoryManager::readFromHistory(1);
-  getchar();
-}
