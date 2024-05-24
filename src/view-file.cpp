@@ -1,8 +1,6 @@
-#include <iostream>
-#include <fstream>
+#include "ash.hpp"
 #include <ncurses.h>
 #include <vector>
-#include <filesystem>
 
 using namespace std;
 
