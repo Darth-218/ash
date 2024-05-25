@@ -14,13 +14,14 @@
 // TODO: Configuration file
 
 using namespace std;
+string path();
 
 char *ash_readlines(void) {
 
   char *buffer = NULL;
   unsigned long buffer_size = 0;
 
-  buffer = readline(NULL);
+  buffer = readline((path() + " > ").c_str());
   return buffer;
 }
 
@@ -109,7 +110,6 @@ void ash_loop(void) {
 
   do {
     signal(SIGINT, handler);
-    cout << path() << "> ";
     command = ash_readlines();
     HistoryManager::init();
     HistoryManager::writeToHistory((string)command);
