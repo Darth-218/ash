@@ -2,10 +2,22 @@
 
 == Team members
 1. Ahmed Mohamed Afifi
+	- `print-file`
+	- `view-file`
+	- The history class
 2. Ahmed Mohamed Abdelmaboud
+	- `where`
+	- `print-dir`
 3. Yahia Hany Gaber
+	- Main shell process
+	- `destroy`
+	- `change-loc`
 4. Mazen Ahmed Refaei
+	- `clone`
+	- `punch`
 5. Zein Hatem Hafez
+	- Built-ins (`change-dir`, `exit`)
+	- `elder`
 
 == Problem statement
 
