@@ -37,7 +37,7 @@ int main(int argc, char **argv)
       curs_set(0);
       bottomWindow = newwin(BOTTOM_WINDOW_HEIGHT, COLS - 1, MAIN_WINDOW_HEIGHT, 0);
       box(bottomWindow, 0, 0);
-      mvwprintw(bottomWindow, 1, 1, "quit: q | scroll_up : j |scroll_down: k");
+      mvwprintw(bottomWindow, 1, 1, "quit: q | scroll_up : j | scroll_down: k");
       refresh();
       wrefresh(bottomWindow);
     }
