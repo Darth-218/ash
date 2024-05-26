@@ -10,7 +10,7 @@ private:
 
   static vector<string> getHistoryLines()
   {
-    fstream fileStream(HistoryManager::historyFilePath == "" ? "./../command-history" : HistoryManager::historyFilePath, ios::out | ios::in);
+    fstream fileStream(HistoryManager::historyFilePath == "" ? "/home/ash/history" : HistoryManager::historyFilePath, ios::out | ios::in);
     vector<string> lines;
 
     if (fileStream.fail() || !fileStream.is_open())
@@ -30,14 +30,14 @@ private:
 public:
   static void init()
   {
-    HistoryManager::historyFilePath = "./../command-history";
+    HistoryManager::historyFilePath = "/home/ash/history";
   }
 
   static int writeToHistory(string command)
   {
     try
     {
-      fstream fileStream(HistoryManager::historyFilePath == "" ? "./../command-history" : HistoryManager::historyFilePath, ios::app);
+      fstream fileStream(HistoryManager::historyFilePath == "" ? "/home/ash/history" : HistoryManager::historyFilePath, ios::app);
 
       if (fileStream.fail() || !fileStream.is_open())
         return EXT_FAIL;
@@ -68,4 +68,4 @@ public:
   }
 };
 
-std::string HistoryManager::historyFilePath = "./../command-history";
+std::string HistoryManager::historyFilePath = "/home/ash/history";
