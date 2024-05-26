@@ -22,8 +22,12 @@ auto main(int argc, char **argv) -> int {
   std::stringstream s;
   s << getenv("HOME") << "/" << ELDER_PATH << "/" << argv[1] << ".elder";
   if (std::filesystem::exists(s.str())) {
-    std::string args[] = {"view-file", s.str().c_str()};
-    ash_run((char **) args);
+    // char* args[] = {s.str()};
+    // ash_start((char **) args);
+    // execvp("print-file", args);
+    std::stringstream c;
+    c << "cat " << s.str();
+    system(c.str().c_str());
   }
   else {
     ERR << argv[0] << ": invalid argument: " << argv[1] << LF;

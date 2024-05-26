@@ -1,0 +1,33 @@
+.TH view-file 1 "2024-05-19" "another shell"
+.
+.
+.SH NAME
+view-file \- print-file, now with scrolling
+.
+.
+.SH SYNOPSIS
+.SY view-file
+.I file
+.YS
+.
+.
+.SH DESCRIPTION
+.P
+Reveals the secrets contained within
+.I file
+to you,
+and lets you scroll its contents.
+.
+.
+.SH AUTHOR
+Created by the member of
+.I First Time Compile
+known as
+.BR "Ahmed Afifi" .
+.
+.
+.SH COPYRIGHT
+.P
+Copyright (C) 2024 First Time Compile
+.br
+There is NO WARRANTY, to the extent permitted by law.
