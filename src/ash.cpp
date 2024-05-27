@@ -115,6 +115,26 @@ void ash_loop(void) {
     HistoryManager::writeToHistory((string)command);
     args = ash_splitargs(command);
     command_status = ash_run(args);
+    switch (command_status) {
+      case EXT_SUCC: break;
+      case EXT_FAIL:
+        ERR << args[0] << ": failed (for an unspecified reason)" << LF;
+        break;
+      case EXT_NFOUND:
+        ERR << args[0] << ": no such file or directory" << LF;
+        break;
+      case EXT_ARG:
+        ERR << args[0] << ": invalid argument or number of arguments" << LF;
+        break;
+      case EXT_INP:
+        ERR << args[0] << ": improper input" << LF;
+        break;
+      case EXT_OS:
+        ERR << args[0] << ": failed due to reasons out of our control" << LF;
+        break;
+      default:
+        ERR << args[0] << ": command returned a non-standard exit code: " << command_status << LF;
+    }
 
     free(command);
     free(args);
